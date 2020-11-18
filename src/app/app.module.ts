@@ -8,14 +8,15 @@ import {RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { MessageDetailsComponent } from './components/message-details/message-details.component';
 import { CreateMessageComponent } from './components/create-message/create-message.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: ':box-status/:name', component: MessageListComponent},
-  {path: ':box-status/:name/:read-status', component: MessageListComponent},
-  {path: ':box-status/:name/view-message/:id', component: MessageDetailsComponent},
-  {path: ':box-status/create-message/:name', component: CreateMessageComponent},
-  {path: ':box-status/reply-to-message/:name/:id', component: CreateMessageComponent}
+  {path: 'view/:box-status/:name', component: MessageListComponent},
+  {path: 'view/:box-status/:name/:read-status', component: MessageListComponent},
+  {path: 'view/:box-status/:name/view-message/:id', component: MessageDetailsComponent},
+  {path: 'send-message/:name', component: CreateMessageComponent},
+  {path: 'confirmation/:name', component: ConfirmationComponent},
 ];
 
 @NgModule({
@@ -24,7 +25,8 @@ const routes: Routes = [
     LoginComponent,
     MessageListComponent,
     MessageDetailsComponent,
-    CreateMessageComponent
+    CreateMessageComponent,
+    ConfirmationComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

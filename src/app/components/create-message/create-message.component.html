@@ -12,7 +12,7 @@
   <!-- Nav panel -->
   <ul class="nav nav-tabs" style="margin-top: -20px">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/inbox/{{currentUser}}">Back to messages</a>
+      <a class="nav-link" routerLink="/view/inbox/{{currentUser}}">Back to messages</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" routerLink="" routerLinkActive="active-link">Log out</a>
@@ -20,11 +20,12 @@
   </ul>
   <!-- Nav panel end -->
   <!-- Message body -->
+  <br>
   <div>
     <form>
       <div class="form-group">
-        <label for="recipient">Select recipient</label>
-        <select class="form-control" id="recipient">
+        <label for="contact">Select contact</label>
+        <select class="form-control" id="contact">
           <option>Lennon</option>
           <option>Harrison</option>
           <option>Starr</option>
@@ -32,9 +33,11 @@
       </div>
       <div class="form-group">
         <label for="content">Message</label>
-        <input type="password" class="form-control" id="content" placeholder="Type your message here">
+        <textarea type="password" class="form-control" id="content" placeholder="Type your message here"></textarea>
       </div>
+      <a routerLink="/confirmation/{{currentUser}}">
       <button type="submit" class="btn btn-primary">Send</button>
+      </a>
     </form>
   </div>
   <!-- Message body end -->

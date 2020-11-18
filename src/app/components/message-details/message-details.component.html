@@ -12,10 +12,10 @@
   <!-- Navigation Panel -->
   <ul class="nav nav-tabs" style="margin-top: -20px">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/{{currentBoxStatus}}/{{currentUser}}">Back to messages</a>
+      <a class="nav-link" routerLink="/view/{{currentBoxStatus}}/{{currentUser}}">Back to messages</a>
     </li>
-    <li class="nav-item">
-      <a *ngIf="currentBoxStatus == 'inbox'" class="nav-link" routerLink="{{currentBoxStatus}}/reply-to-message/{{currentUser}}/{{messageId}}">Reply</a>
+    <li class="nav-item" *ngFor="let message of originalMessages">
+      <a *ngIf="currentBoxStatus == 'inbox' && message.id == messageId" class="nav-link" routerLink="/send-message/{{currentUser}}">Reply</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" routerLink="" routerLinkActive="active-link">Log out</a>

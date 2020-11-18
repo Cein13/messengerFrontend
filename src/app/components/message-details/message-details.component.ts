@@ -18,9 +18,6 @@ export class MessageDetailsComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.currentUser = this.route.snapshot.paramMap.get('name');
-    this.messageId = +this.route.snapshot.paramMap.get('id');
-    this.currentBoxStatus = this.route.snapshot.paramMap.get('box-status');
     this.route.paramMap.subscribe(() => {
       this.listAllMessagesForUser();
     });
@@ -37,9 +34,9 @@ export class MessageDetailsComponent implements OnInit {
           this.originalMessages = data._embedded.messages;
         }
       );
-    this.testDataStatus();
+    this.testMessageDetailsComponentData();
   }
-  private testDataStatus(): void{
+  private testMessageDetailsComponentData(): void{
       console.log('Current User: ' + this.currentUser +
                    '\nCurrent message id: ' + this.messageId); }
 

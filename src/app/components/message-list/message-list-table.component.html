@@ -12,13 +12,13 @@
   <!-- Navigation Panel -->
   <ul class="nav nav-tabs" style="margin-top: -20px">
     <li class="nav-item">
-      <a class="nav-link" href="#">Create new</a>
+      <a class="nav-link" routerLink="/send-message/{{currentUser}}">Create new</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/inbox/{{currentUser}}">Inbox</a>
+      <a class="nav-link" routerLink="/view/inbox/{{currentUser}}">Inbox</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/sent/{{currentUser}}">Sent</a>
+      <a class="nav-link" routerLink="/view/sent/{{currentUser}}">Sent</a>
     </li>
     <li class="nav-item">
       <div class="dropdown" style="margin-top: 4px">
@@ -27,9 +27,9 @@
           Filter messages
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" routerLink="/{{currentBoxStatus}}/{{currentUser}}/read">Read</a>
+          <a class="dropdown-item" routerLink="/view/{{currentBoxStatus}}/{{currentUser}}/read">Read</a>
           <br>
-          <a class="dropdown-item" routerLink="/{{currentBoxStatus}}/{{currentUser}}/unread">Unread</a>
+          <a class="dropdown-item" routerLink="/view/{{currentBoxStatus}}/{{currentUser}}/unread">Unread</a>
         </div>
       </div>
     </li>
@@ -48,12 +48,12 @@
           <td *ngIf="message.wasRead == false">
             <p *ngIf="message.senderName == currentUser">To {{message.receiverName}} ({{message.dateCreated}}): </p>
             <p *ngIf="message.senderName !== currentUser">From {{message.senderName}} ({{message.dateCreated}}): </p>
-            <p style="font-weight: bold"><a routerLink="/{{currentBoxStatus}}/{{currentUser}}/view-message/{{message.id}}">{{message.message}}</a></p>
+            <p style="font-weight: bold"><a routerLink="/view/{{currentBoxStatus}}/{{currentUser}}/view-message/{{message.id}}">{{message.message}}</a></p>
           </td>
           <td *ngIf="message.wasRead == true">
             <p *ngIf="message.senderName == currentUser">To {{message.receiverName}} ({{message.dateCreated}}):</p>
             <p *ngIf="message.senderName !== currentUser">From {{message.senderName}} ({{message.dateCreated}}):</p>
-            <p><a routerLink="/{{currentBoxStatus}}/{{currentUser}}/view-message/{{message.id}}">{{message.message}}</a></p>
+            <p><a routerLink="/view/{{currentBoxStatus}}/{{currentUser}}/view-message/{{message.id}}">{{message.message}}</a></p>
           </td>
         </tr>
       </tbody>
